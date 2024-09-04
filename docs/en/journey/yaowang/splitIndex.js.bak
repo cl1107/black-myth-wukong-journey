@@ -1,0 +1,32 @@
+const fs = require('fs');
+const path = require('path');
+
+// 读取index.md文件内容
+const content = fs.readFileSync('index.md', 'utf-8');
+
+// 按一级标题分割内容
+const sections = content.split(/^# /m).slice(1);
+
+let currentTitle = '';
+let currentContent = '';
+
+sections.forEach((section, index) => {
+  const lines = section.split('\n');
+  const title = lines[0].trim();
+  const content = lines.slice(1).join('\n').trim();
+
+  // 如果不是最后一个section，保存当前内容
+  if (index < sections.length - 1) {
+    if (currentTitle) {
+      fs.writeFileSync(`${currentTitle}.md`, currentContent.trim());
+    }
+    currentTitle = title;
+    currentContent = `# ${title}\n\n${content}\n\n`;
+  } else {
+    // 最后一个section，添加到当前内容并保存
+    currentContent += `# ${title}\n\n${content}`;
+    fs.writeFileSync(`${currentTitle}.md`, currentContent.trim());
+  }
+});
+
+console.log('文件拆分完成');

@@ -1,0 +1,35 @@
+const fs = require('fs');
+const path = require('path');
+
+// 获取当前目录
+const currentDir = __dirname;
+
+// 读取当前目录下的文件
+fs.readdir(currentDir, (err, files) => {
+  if (err) {
+    console.error('读取目录出错:', err);
+    return;
+  }
+
+  // 过滤文件名,排除当前脚本和_meta.json
+  const fileNames = files.filter(
+    (file) => file !== 'getBaseName.js' && file !== '_meta.json'
+  );
+
+  // 将文件名数组转换为JSON字符串
+  const jsonContent = JSON.stringify(fileNames, null, 2);
+
+  // 写入_meta.json文件
+  fs.writeFile(
+    path.join(currentDir, '_meta.json'),
+    jsonContent,
+    'utf8',
+    (err) => {
+      if (err) {
+        console.error('写入文件出错:', err);
+        return;
+      }
+      console.log('_meta.json文件已成功创建并写入内容');
+    }
+  );
+});

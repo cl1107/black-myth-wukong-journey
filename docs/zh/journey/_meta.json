@@ -1,0 +1,22 @@
+[
+  {
+    "type": "dir",
+    "name": "xiaoyao",
+    "label": "小妖"
+  },
+  {
+    "type": "dir",
+    "name": "toumu",
+    "label": "头目"
+  },
+  {
+    "type": "dir",
+    "name": "yaowang",
+    "label": "妖王"
+  },
+  {
+    "type": "dir",
+    "name": "renwu",
+    "label": "人物"
+  }
+]
