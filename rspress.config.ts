@@ -50,4 +50,5 @@ export default defineConfig({
       searchPlaceholderText: 'Search',
     },
   ],
+  base:'/black-myth-wukong-journey/'
 });
