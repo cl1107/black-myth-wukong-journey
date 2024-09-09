@@ -1,5 +1,6 @@
 import * as path from 'path';
 import { defineConfig } from 'rspress/config';
+import { pluginGoogleAnalytics } from 'rsbuild-plugin-google-analytics';
 
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
@@ -22,6 +23,11 @@ export default defineConfig({
         content: 'https://github.com/cl1107/black-myth-wukong-journey',
       },
     ],
+  },
+  builderConfig:{
+    plugins: [
+      pluginGoogleAnalytics({ id: 'G-1KEFT7S8MT' }),
+    ]
   },
   locales: [
     {
