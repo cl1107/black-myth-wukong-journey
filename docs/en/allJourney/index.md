@@ -1,3 +1,7 @@
+---
+published_at: 2024-09-12 10:00:00
+---
+
 ## Wolf Scout
 
 > Immaculate skills, the wolf's lone aim,
